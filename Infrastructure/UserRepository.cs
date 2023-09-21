@@ -27,10 +27,10 @@ namespace Infrastructure
             return await _dbContext.Users.ToListAsync();
         }
 
-        public async Task AddAsync(User user)
+        public async Task<int> AddAsync(User user)
         {
             await _dbContext.Users.AddAsync(user);
-            await _dbContext.SaveChangesAsync();
+            return await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(User user)
@@ -39,9 +39,10 @@ namespace Infrastructure
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(User user)
+        public async Task<int> UpdateAsync(User user)
         {
-            throw new NotImplementedException();
+            _dbContext.Entry(user).State = EntityState.Modified;
+            return await _dbContext.SaveChangesAsync();
         }
 
     }

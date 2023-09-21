@@ -11,8 +11,8 @@ namespace Infrastructure
     {
         Task<User> GetByIdAsync(int id);
         Task<IEnumerable<User>> GetAllAsync();
-        Task UpdateAsync(User user);
+        Task<int> UpdateAsync(User user);
         Task DeleteAsync(User id);
-        Task AddAsync(User user);
+        Task<int> AddAsync(User user);
     }
 }
