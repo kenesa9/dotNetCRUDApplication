@@ -7,7 +7,7 @@ using FluentValidation;
 
 namespace Domain
 {
-    public class UserValidation :AbstractValidator<User>    
+    public class UserValidation :AbstractValidator<UserDTO>    
     {
         public UserValidation() 
         {

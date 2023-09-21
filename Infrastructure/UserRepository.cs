@@ -33,10 +33,10 @@ namespace Infrastructure
             return await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(User user)
+        public async Task<bool> DeleteAsync(User user)
         {
             _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync();
+            return await _dbContext.SaveChangesAsync() == 1;
         }
 
         public async Task<int> UpdateAsync(User user)

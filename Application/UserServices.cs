@@ -49,8 +49,7 @@ namespace Application
         {
             var user = await _userRepository.GetByIdAsync(id);
             if(user == null) { return false;}
-            await _userRepository.DeleteAsync(user);
-            return true;
+            return await _userRepository.DeleteAsync(user);
         }
     }
 }
